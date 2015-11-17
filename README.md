@@ -4,28 +4,32 @@ Github bling - integrating your project workflow into your environment.
 
 ## Team
 
-  - __Product Owner__: Banun Idris
-  - __Scrum Master__: Jason Matsui
-  - __Development Team Members__: Charlie Harrington, Way Huang
+- __Product Owner__: Banun Idris
+- __Scrum Master__: Jason Matsui
+- __Development Team Members__: Charlie Harrington, Way Huang
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-1. [Team](#team)
-1. [Contributing](#contributing)
+2. [Requirements](#requirements)
+3. [Development](#development)
+   1. [Installing Dependencies](#installing-dependencies)
+4. [Team](#team)
+5. [Contributing](#contributing)
 
 ## Usage
 
 Combine this with a repo to make git audio. You'll need to create a custom hook inside of git,
+
 create a server that has this repo. And then open the client to listen to updates. 
 
-To change/update view on new event:
+
+
+###### To change/update view on new event:
 
   one way: use the global object: gitEventCollection and push a new vanilla object that look like this:
-  ```sh
+
+``` sh
   {
     data: {
         type: 'event type',
@@ -37,27 +41,37 @@ To change/update view on new event:
         repo_url: 'http://github.repo.path'
     };
   }
-  ```
+```
+
   second way: the server and client are paired by socket.io, whenever github sends a new event by webhook,
+
   that event will be heard by the server which then passes it to the client and heard in the app model.
+
   then the event is pushed to the eventCollection by the addNewEvent function in app model.
+
   this will trigger the view to change on appView.
 
-component of the client:
-  Views:
-    appView:
-      it renders/triggers the rendering of the main view on client
-      it also the has the controller function to make ajex call to github to specify which personally associated repo to listen to.
+#### component of the client:
 
-    eventListView and eventEntryView:
-      the first contains the second, and together they form the view of the list of events.
+######   Views:
 
-  Models:
-    the app model:
-      At initialization it establishes the connection with server and sets event listener for incoming events.
+``` 
+appView:
+  it renders/triggers the rendering of the main view on client
+  it also the has the controller function to make ajex call to github to specify which personally associated repo to listen to.
 
-      addNewEvent: it adds new event to the the eventCollection.
+eventListView and eventEntryView:
+  the first contains the second, and together they form the view of the list of events.
+```
 
+######   Models:
+
+``` 
+the app model:
+  At initialization it establishes the connection with server and sets event listener for incoming events.
+
+  addNewEvent: it adds new event to the the eventCollection.
+```
 
 ## Requirements
 
@@ -83,7 +97,7 @@ Note: tests still need to be written
 
 From within the root directory:
 
-```sh
+``` sh
 sudo npm install -g bower
 npm install
 bower install
