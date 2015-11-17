@@ -1,6 +1,6 @@
-# kindlingicicle
+# Github bling
 
-Github bling - integrating your project workflow into your environment.
+Get real-time updates on repositories with auditory updates. 
 
 ## Team
 
@@ -82,7 +82,6 @@ the app model:
 - Socket.io
 - Underscore
 - Jquery
-- Mongoose / Mongo
 - Bower
 
 ## Development
