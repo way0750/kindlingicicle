@@ -20,6 +20,15 @@ var appView = Backbone.View.extend({
 
    //toggle library when clicked - TODO: refactor into events object in appView
     $('.switchMode').on('click', function(){
+      var button = $('.switchMode');
+      var allenMode = button.hasClass('allenMode');
+      console.log(allenMode);
+      if (allenMode){
+        button.removeClass('allenMode');
+      } else {
+        button.addClass('allenMode');
+      }
+
       mainAppView.model.get('library').toggleLib();
     });
 
